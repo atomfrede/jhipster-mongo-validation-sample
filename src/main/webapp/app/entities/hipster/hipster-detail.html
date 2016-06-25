@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span translate="jhipsterApp.hipster.detail.title">Hipster</span> {{vm.hipster.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="jhipsterApp.hipster.name">Name</span></dt>
+        <dd>
+            <span>{{vm.hipster.name}}</span>
+        </dd>
+        <dt><span translate="jhipsterApp.hipster.shirt">Shirt</span></dt>
+        <dd>
+            <span translate="{{'jhipsterApp.Band.' + vm.hipster.shirt}}">{{vm.hipster.shirt}}</span>
+        </dd>
+        <dt><span translate="jhipsterApp.hipster.age">Age</span></dt>
+        <dd>
+            <span>{{vm.hipster.age}}</span>
+        </dd>
+        <dt><span translate="jhipsterApp.hipster.avatar">Avatar</span></dt>
+        <dd>
+            <div ng-if="vm.hipster.avatar">
+                <a ng-click="vm.openFile(vm.hipster.avatarContentType, vm.hipster.avatar)">
+                    <img data-ng-src="{{'data:' + vm.hipster.avatarContentType + ';base64,' + vm.hipster.avatar}}" style="max-width: 100%;"/>
+                </a>
+                {{vm.hipster.avatarContentType}}, {{vm.byteSize(vm.hipster.avatar)}}
+            </div>
+        </dd>
+        <dt><span translate="jhipsterApp.hipster.birthday">Birthday</span></dt>
+        <dd>
+            <span>{{vm.hipster.birthday | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span translate="jhipsterApp.hipster.reallyHipster">Really Hipster</span></dt>
+        <dd>
+            <span>{{vm.hipster.reallyHipster}}</span>
+        </dd>
+        <dt><span translate="jhipsterApp.hipster.sampleField">Sample Field</span></dt>
+        <dd>
+            <span>{{vm.hipster.sampleField}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

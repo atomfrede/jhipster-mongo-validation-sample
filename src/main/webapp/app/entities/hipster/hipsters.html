@@ -1,0 +1,73 @@
+<div>
+    <h2 translate="jhipsterApp.hipster.home.title">Hipsters</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="hipster.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="jhipsterApp.hipster.home.createLabel">
+                        Create new Hipster
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="jhipsterApp.hipster.name">Name</span></th>
+                    <th><span translate="jhipsterApp.hipster.shirt">Shirt</span></th>
+                    <th><span translate="jhipsterApp.hipster.age">Age</span></th>
+                    <th><span translate="jhipsterApp.hipster.avatar">Avatar</span></th>
+                    <th><span translate="jhipsterApp.hipster.birthday">Birthday</span></th>
+                    <th><span translate="jhipsterApp.hipster.reallyHipster">Really Hipster</span></th>
+                    <th><span translate="jhipsterApp.hipster.sampleField">Sample Field</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="hipster in vm.hipsters track by hipster.id">
+                    <td><a ui-sref="hipster-detail({id:hipster.id})">{{hipster.id}}</a></td>
+                    <td>{{hipster.name}}</td>
+                    <td translate="{{'jhipsterApp.Band.' + hipster.shirt}}">{{hipster.shirt}}</td>
+                    <td>{{hipster.age}}</td>
+                    <td>
+                        <a ng-if="hipster.avatar" ng-click="vm.openFile(hipster.avatarContentType, hipster.avatar)">
+                            <img data-ng-src="{{'data:' + hipster.avatarContentType + ';base64,' + hipster.avatar}}" style="max-height: 30px;"/>
+                        </a>
+                        <span ng-if="hipster.avatar">{{hipster.avatarContentType}}, {{vm.byteSize(hipster.avatar)}}</span>
+                    </td>
+                        <td>{{hipster.birthday | date:'mediumDate'}}</td>
+                    <td>{{hipster.reallyHipster}}</td>
+                    <td>{{hipster.sampleField}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="hipster-detail({id:hipster.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="hipster.edit({id:hipster.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="hipster.delete({id:hipster.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

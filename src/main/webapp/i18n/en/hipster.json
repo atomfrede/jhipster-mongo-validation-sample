@@ -1,0 +1,28 @@
+{
+    "jhipsterApp": {
+        "hipster" : {
+            "home": {
+                "title": "Hipsters",
+                "createLabel": "Create a new Hipster",
+                "createOrEditLabel": "Create or edit a Hipster",
+                "search": "Search for Hipster"
+            },
+            "created": "A new Hipster is created with identifier {{ param }}",
+            "updated": "A Hipster is updated with identifier {{ param }}",
+            "deleted": "A Hipster is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Hipster {{ id }}?"
+            },
+            "detail": {
+                "title": "Hipster"
+            },
+            "name": "Name",
+            "shirt": "Shirt",
+            "age": "Age",
+            "avatar": "Avatar",
+            "birthday": "Birthday",
+            "reallyHipster": "Really Hipster",
+            "sampleField": "Sample Field"
+        }
+    }
+}
